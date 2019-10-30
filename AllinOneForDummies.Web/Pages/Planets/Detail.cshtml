@@ -1,0 +1,29 @@
+﻿@page "{planetId:int}"
+
+@model DetailModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h2>@Model.Planet.Name</h2>
+
+@if (Model.Message != null)
+{
+    <div class="alert alert-info">@Model.Message</div>
+}
+
+<div>
+    Id: @Model.Planet.Id
+</div>
+<div>
+    Size: @Model.Planet.Radius
+</div>
+<div>
+    Distance: @Model.Planet.Distance.ToString("N") km
+</div>
+<div>
+    Attractiveness rating: @Model.Planet.AttractivenessRating
+</div>
+
+
+<a asp-page="./List" class="btn btn-default">All Planets</a>

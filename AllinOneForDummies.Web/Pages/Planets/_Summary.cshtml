@@ -1,0 +1,31 @@
+﻿@using AllinOneForDummies.Data
+@model Planet
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>@Model.Name</h3>
+    </div>
+    <div class="panel-body">
+        <span>Name: @Model.Name</span>
+        <span>Radius: @Model.Radius</span>
+        <span>Distance: @Model.Distance.ToString("N") km</span>
+        <span>Attractiveness rating: @Model.AttractivenessRating</span>
+    </div>
+    <div class="panel-footer">
+        <a class="btn"
+           asp-page="./Detail"
+           asp-route-planetId="@Model.Id">
+            <i class="glyphicon glyphicon-zoom-in"></i>
+        </a>
+        <a class="btn"
+           asp-page="./Edit"
+           asp-route-planetId="@Model.Id">
+            <i class="glyphicon glyphicon-edit"></i>
+        </a>
+        <a class="btn"
+           asp-page="./Delete"
+           asp-route-planetId="@Model.Id">
+            <i class="glyphicon glyphicon-trash"></i>
+        </a>
+    </div>
+</div>

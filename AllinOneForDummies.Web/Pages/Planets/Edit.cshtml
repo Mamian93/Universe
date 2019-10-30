@@ -1,0 +1,48 @@
+﻿@page "{planetId:int?}"
+
+@model AllinOneForDummies.Web.Pages.Planets.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Editing @Model.Planet.Name</h2>
+<form method="post">
+
+    <input type="hidden" asp-for="Planet.Id" />
+    <div class="form-group">
+        <label asp-for="Planet.Name"></label>
+        <input asp-for="Planet.Name" class="form-control" />
+        <span class="text-danger" asp-validation-for="Planet.Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Planet.Distance"></label>
+        <input asp-for="Planet.Distance" class="form-control" />
+        <span class="text-danger" asp-validation-for="Planet.Distance"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Planet.Radius"></label>
+        <input asp-for="Planet.Radius" class="form-control" />
+        <span class="text-danger" asp-validation-for="Planet.Radius"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Planet.AttractivenessRating"></label>
+        <input asp-for="Planet.AttractivenessRating" class="form-control" />
+        <span class="text-danger" asp-validation-for="Planet.AttractivenessRating"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Planet.PlanetType"></label>
+        <select class="form-control" asp-for="Planet.PlanetType"
+                asp-items="Model.PlanetTypes">
+        </select>
+
+        <span class="text-danger" asp-validation-for="Planet.PlanetType"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/jQueryFixes.js"></script>
+}
+

@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AllinOneForDummies.Data\AllinOneForDummies.Data.csproj" />
+    <ProjectReference Include="..\AllinOneForDummies.Core\AllinOneForDummies.Core.csproj" />
   </ItemGroup>
 
 </Project>

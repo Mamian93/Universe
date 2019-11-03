@@ -28,6 +28,7 @@ namespace AllinOneForDummies.Core
 
         public ICollection<Moon> Moons { get; set; }
 
+        public int StarId { get; set; }
         public Star Star { get; set; }
     }
 }

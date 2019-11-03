@@ -15,7 +15,24 @@ namespace AllinOneForDummies.Core
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-G67V9RV\SQLEXPRESS;Database=LearningDB;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-G67V9RV\SQLEXPRESS;Database=LearningDB;Trusted_Connection=True;");            
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Planet>()
+                .HasMany(a => a.Moons)
+                .WithOne(a => a.Planet)
+                .HasForeignKey(a => a.PlanetId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Star>()
+                .HasMany(a => a.Planets)
+                .WithOne(a => a.Star)
+                .HasForeignKey(a => a.StarId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

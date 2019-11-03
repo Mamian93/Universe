@@ -20,6 +20,7 @@ namespace AllinOneForDummies.Core
         [Range(0, 10, ConvertValueInInvariantCulture = true, ErrorMessage = "Value out of range")]
         public decimal AttractivenessRating { get; set; }
 
+        public int PlanetId { get; set; }
         public Planet Planet { get; set; }
     }
 }

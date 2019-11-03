@@ -1,5 +1,6 @@
 ﻿using AllinOneForDummies.Core;
 using AllinOneForDummies.Core.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,7 @@ namespace AllinOneForDummies.Core.Services
 
         public Planet GetPlanetById(int planetId)
         {
-            return context.Planets.Find(planetId);
+            return context.Planets.Include(a => a.Star).FirstOrDefault(a => a.Id == planetId);
         }
 
         public IEnumerable<Planet> GetPlanets()
